@@ -69,9 +69,9 @@ static BOOL getPrefBool(NSString* key, BOOL fallback)
     if (!hasExpanded)
     {
         CGFloat yF = isX ? 44 : 10;
-        if (getPrefBool(@"fromTop", YES))
+        if (getPrefBool(@"fromBottom", NO))
         {
-            self.frame = CGRectMake(10, kHeight - 115, kWidth - 20, 90);
+            self.frame = CGRectMake(10, kHeight - 100, kWidth - 20, 90);
         }
         else
         {
@@ -106,9 +106,9 @@ static BOOL getPrefBool(NSString* key, BOOL fallback)
         //dismiss siri
         [UIView animateWithDuration:0.3f animations:^{
             //animate it upwards
-            if (getPrefBool(@"fromTop", YES))
+            if (getPrefBool(@"fromBottom", NO))
             {
-              self.subviews[0].center = CGPointMake(self.subviews[0].center.x, 200);
+              self.subviews[0].center = CGPointMake(self.subviews[0].center.x, 180);
             }
             else
             {
@@ -171,7 +171,7 @@ static BOOL getPrefBool(NSString* key, BOOL fallback)
 %new
 -(void)didSwipeUp
 {
-    if (getPrefBool(@"fromTop", YES))
+    if (getPrefBool(@"fromBottom", NO))
     {
         [self expandSiriView];
     }
@@ -184,7 +184,7 @@ static BOOL getPrefBool(NSString* key, BOOL fallback)
 %new
 -(void)didSwipeDown
 {
-    if (getPrefBool(@"fromTop", YES))
+    if (getPrefBool(@"fromBottom", NO))
     {
         [self closeSiriView];
     }
