@@ -223,6 +223,11 @@ static BOOL getPrefBool(NSString* key, BOOL fallback)
 }
 %end
 
+inline CGRect worldFrameOfView(UIView* aView)
+{
+    return [[aView superview] convertRect:aView.frame toView:nil];
+}
+
 //force button to be on bottom on iPhone X
 %hook SiriUISiriStatusView
 -(id)init
@@ -246,7 +251,7 @@ static BOOL getPrefBool(NSString* key, BOOL fallback)
             if ([v isMemberOfClass:[UIButton class]])
             {
                 //modify button's frame
-                yChange = v.frame.origin.y;
+                yChange = worldFrameOfView(v).origin.y;
                 yChange -= (self.frame.size.height - v.frame.size.height); //will be negative
                 v.frame = CGRectMake(0, yChange * -1, v.frame.size.width, v.frame.size.height);
                 //move the siri icon down by the same amount:
