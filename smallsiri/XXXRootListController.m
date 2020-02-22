@@ -14,12 +14,12 @@
 
 -(void)openGithub
 {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/Muirey03/SmallSiri"]];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/Muirey03/SmallSiri"] options:@{} completionHandler:nil];
 }
 
 -(void)openTwitter
 {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://twitter.com/Muirey03"]];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://twitter.com/Muirey03"] options:@{} completionHandler:nil];
 }
 
 @end
